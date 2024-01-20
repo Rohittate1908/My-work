@@ -1,0 +1,104 @@
+<h2>Anugalar Pipes:</h2>
+
+<!-- Pipes are responsible for tranforming one format of data into another format of data.
+There are two types of pipes i.e. built in pipe and custom pipe. 
+Buil in Pipes: uppercase, lowercase, titlecase, date, json, slice, currency pipes.
+
+We can create custom pipe with CLI commands: ng g p pipeName
+
+If we want to convert data throght out the application as per the user's requirements then we can implement custom Pipes.
+
+Pipetransform is the interface used in custom pipe. 
+transform is the method reposponsible for converting the data from one format to another format.
+and this method is coming from pipetranform interface. -->
+
+<h3>Built-in Pipes</h3>
+
+<h5>Original Text: {{sampleText}}</h5>
+
+<h5>Uppercase Text: {{sampleText | uppercase}}</h5>
+
+<h5>Lowercase Text: {{sampleText | lowercase}}</h5>
+
+<h5>Title Case Text: {{sampleText | titlecase}}</h5>
+
+<h5>{{courses}}</h5>
+<!-- <h5>{{courses | titlecase}}</h5> This oeration not done on arrray--> 
+
+<br>
+
+<h4>Date Pipes:</h4>
+
+<h5>Original Date: {{date1}}</h5>
+
+<h5>Standard format: {{date1 | date}} </h5>
+
+<h5>Shrot Date: {{date1 | date: 'short'}}</h5>
+
+<h5>Medium Date: {{date1 | date: 'medium'}}</h5>
+
+<h5>dd/MM/yyyy Date: {{date1 | date: 'dd/MM/yyyy'}}</h5>
+
+<br>
+
+<h4>Json Pipes:</h4>
+
+<h5>json Pipes: {{data}}</h5>
+
+<h5>json Pipes: {{data | json}}</h5>
+
+<br>
+
+<h4>Slice Pipes:</h4>
+
+<h5>Original Text: {{sampleText}}</h5>
+
+<h5>Slice Text: {{sampleText | slice:2}}</h5>
+
+<h5>Slice Text: {{sampleText | slice:2:7}}</h5>
+
+<h5>Slice Text: {{sampleText | slice:0:7}}</h5>
+
+<h5>Slice Text: {{sampleText | slice:0:3}}</h5>
+
+<h5>Slice Text: {{courses | slice:0}}</h5>
+
+<h5>Slice Text: {{courses | slice:1}}</h5>
+
+<h5>Slice Text: {{courses | slice:0:3}}</h5>
+
+<h5>Slice Text: {{courses | slice:0:1}}</h5>
+
+<br>
+
+<h4>Currancy Pipes:</h4>
+
+<h5>Original Text: {{salary}}</h5>
+
+<h5>Original Text: {{salary | currency}}</h5>
+
+<h5>Original Text: {{salary | currency: 'INR'}}</h5>
+
+<h5>Original Text: {{salary | currency:'USD'}}</h5>
+
+<h5>Original Text: {{salary | currency:'AED'}}</h5>
+
+<br>
+
+<h4>Multiple Pipes:</h4>
+
+<h5>Multiple Pipes: {{sampleText | slice :0:5 | uppercase}}</h5>
+
+<!-- <h5>Multiple Pipes: {{sampleText | slice :0:5 | date:'short'}}</h5> -->
+
+<br>
+
+<h4>Custom Pipe</h4>
+
+<h5>original Text: {{sampleText}}</h5>
+
+<h5>Original Text: {{salary | cust: 100:25:45 }}<h5>
+<h5>Original Text: {{salary | cust:100 }}</h5>
+
+<h5>Original Text: {{salary | cust:75 }}</h5>
+

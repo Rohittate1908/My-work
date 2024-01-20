@@ -1,0 +1,29 @@
+<!--<h1> Hello Angular <h1>-->
+<h2>Data Binding</h2> 
+
+ <!-- interpolation -->   
+<h3>{{sampleText}}</h3> <br>
+
+<!-- property binding  -->
+<a [href]="link" class="btn btn-link">Go to Google</a> <br><br>
+<img [src]="image" > <br> <br>
+
+<!-- event binding  -->
+<button class ="btn btn-warning" (click) = "clickEvent()">Submit</button> <br> <br>
+
+<!-- two way data binding  -->
+<b>Please Enter your Name : <input type="text" name="fullName" [(ngModel)] = "fullName"> <br><br></b>
+
+<b>Your Name is : {{fullName}}</b> <br>
+
+<!-- <app-directives></app-directives> -->
+
+
+<!--<br>-->
+
+<!--{{sampleTest2}}      bcz of private-->  
+{{sampleNumber}} <br>
+{{sampleNumber + 20}}
+
+<!-- <h5>Cusiom Pipe: {{fullName | cust: 5:2}}</h5> -->
+

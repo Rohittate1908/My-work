@@ -1,0 +1,79 @@
+
+<div class="container bg-success">
+    <form name="myForm" #frm="ngForm">
+        <!--  (ngSubmit)="frm.form.valid && onSubmitForm(frm)" -->
+
+        <div class="form-group mb-3">
+            <label for="firstName">First Name: <span style="color: red;">*</span></label>
+            <input type="text" name="fname" class="form-control" #fname="ngModel" [(ngModel)]="fna" required ngModel
+                [ngClass]="{'is-invalid':frm.submitted && fname.invalid}" placeholder="Please Enter First Name">
+            <div *ngIf="frm.submitted && fname.invalid" class="invalid-feedback">
+                First Name is Required
+            </div>
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="lastName">Last Name:<span style="color: red;">*</span></label>
+            <input type="text" name="lname" class="form-control" #lname="ngModel" [(ngModel)]="ln" required ngModel
+                [ngClass]="{'is-invalid':frm.submitted && lname.invalid}" placeholder="Please Enter Last Name">
+            <div *ngIf="frm.submitted && lname.invalid" class="invalid-feedback">
+                Last Name is Required
+            </div>
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="email">Email:<span style="color: red;">*</span></label>
+            <input type="email" name="email" class="form-control" #email="ngModel" [(ngModel)]="mail" required ngModel
+                [ngClass]="{'is-invalid':frm.submitted && email.invalid}"
+                pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+            <div *ngIf="email.touched" class="invalid-feedback">
+                <p *ngIf="email.errors?.['required']"> Email is Required </p>
+                <p *ngIf="email.errors?.['pattern']"> Please Enter Valid Email </p>
+            </div>
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="course">Course:</label>
+            <select name="course" class="form-control" #course="ngModel" [ngModel]="edu" ngModel>
+                <option *ngFor="let course of courses">{{course}}</option>
+            </select>
+        </div>
+
+
+        <div>
+            <button class="btn btn-success" *ngIf="submitButton" (click)=" onSubmitForm(frm)"
+                ngSubmit="myForm.form.vaild && onSubmit(myForm)">submit</button> &nbsp;
+                <button type="reset" class="btn btn-primary">Clear</button>
+            <button class="btn btn-warning" *ngIf="showButton" (click)="onUpdateTemp(frm)">Update</button>&nbsp;
+            
+        </div>
+
+    </form>
+</div>
+<br>
+
+ Table data:
+
+<div class="data mt-3" *ngIf="showData">
+    <table class="table table-bordered">
+        <tr>
+            <td>First Name:</td>
+            <td>Last Name</td>
+            <td>Email:</td>
+            <td>Course</td>
+        </tr>
+        <tr *ngFor="let dat of  data; index as i">
+
+            <td>{{dat.fname}}</td>
+            <td>{{dat.lname}}</td>
+            <td>{{dat.email}}</td>
+            <td>{{dat.course}}</td>
+
+            <td><button class="btn btn-danger" (click)="onDelete(dat)">Delete</button></td>
+            <td><button class="btn btn-warning" (click)="onEdit(dat)">Edit</button></td>
+
+
+
+        </tr>
+    </table>
+</div>                                                                             

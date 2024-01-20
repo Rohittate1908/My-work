@@ -1,0 +1,118 @@
+<h1>Angular Directives</h1>
+
+<h3>structural Directives</h3>
+
+<!-- 1. *ngIf  -->
+
+<!-- Normal -->
+<!-- <div>
+    <p>Your Age is greater than 18</p>
+</div> -->
+
+<!-- With *ngIf -->
+
+<div>
+    <h4>This is *ngIf structural Directive</h4>
+    <p *ngIf = "age > 18">Your age is {{age}} and This greater than 18</p>  
+    <!-- Output not shown on browser because of age =15 -->
+    <!-- Output shown on browser because of age =20 (Your age is 20 and This greater than 18) -->
+    <p *ngIf = "age > 18 && showData">Your age is {{age}} and This greater than 18</p>
+    <!-- AND operator is used for data hide or show -->
+    <!-- if in showData true then output show on browser , if in showData false then output not shown on browser because of AND operator -->
+    <p *ngIf = "age > 18 || showData">Your age is {{age}} and This greater than 18</p>
+    <!-- if the condition in shoeData either true or false, output will shown on browser because of OR operator -->
+</div>
+
+
+<!-- 2. *ngFor  -->
+<h4>This is *ngFor structural Directive</h4>
+<select>
+    <!-- This is normal behaviour of select and option
+    <option value="">Akshay</option>
+    <option value="">Kumar</option>
+    <option value="">Jitesh</option> -->
+
+    <option *ngFor = "let nm of Stud">{{nm}}</option>
+</select>
+<br><br>
+
+<table>
+    <tr>
+       <td><b> Names </b></td> 
+    </tr>
+    <tr>
+        <!-- This is for normal table behaviour -->
+        <td>Sanika</td>
+        <td>Sharaddha</td>
+        <td>Shravani</td>
+    </tr>
+
+    <!-- This is the for loop for table -->
+    <tr>
+    <td *ngFor = "let x of Stud" >{{x}}</td>
+    </tr>
+</table>
+<br>
+
+ <!-- 3. ngSwitch -->
+ <h4>This is *ngSwitch structural Directive</h4>
+
+ <div [ngSwitch] = "num">
+    <div *ngSwitchCase = "1">One</div>
+    <div *ngSwitchCase = "2">Two</div>
+    <div *ngSwitchCase = "3">Three</div>
+    <div *ngSwitchCase = "4">Four</div>
+    <div *ngSwitchCase = "5">Five</div>
+    <!-- Output is Two because of this (num: any = 2;) -->
+    <div *ngSwitchDefault>This is Default Case</div>
+    <!-- Output is Default because of this (num: any = 15;) --> 
+ </div>
+ <br><br><br>
+
+ <h3>Attribute Directives</h3> <br>
+ <h4>This is ngClass Attribute Directive</h4>
+
+ <p class = "testClass">Hello This is my Normal Class</p>
+
+ <p [ngClass]="testClass1">Hello this is my attribute directive ngClass</p>
+
+ <div [ngClass]="showData ? 'test1': 'test2'"> This is an attribute with Conditional CSS</div>
+
+<br><br>
+
+ <h4>This is ngStyle Attribute Directive</h4>
+
+<!-- This is the normal Style -->
+ <div style="color:red">
+    <p>This an normal style</p>
+ </div>
+
+ <div [ngStyle]="{'color':'blueviolet', 'font-size': '20px'}">
+    <p>This is an ngStyle</p>
+ </div>
+
+ <div [ngStyle]="myStyle">
+    <p>This is an style from ts with the help of ngStyle</p>
+ </div>
+
+ <div [ngStyle]="showData ? myStyle2:myStyle">
+    <p>this is conditionally an style from ts with the help of ngStyle</p>
+ </div>
+
+ 
+<h3>Custom Directives</h3>
+
+
+<!-- Custom Directives:
+	If we need to perfomrm some DOM related tasks throught the application then we prefer for custom directives.
+	We can create custom directives using command: ng g d directiveName -->
+
+<div appCustDir>
+   <p> This is Custom Directives </p>
+</div>
+
+<p appCustDir>This is the Second Custom Directive</p>
+
+
+
+

@@ -1,0 +1,41 @@
+<p>service-data2 works!</p>
+
+<!-- <table> 
+    
+    <tr>
+        
+        <th>UserID</th>
+        <th>ID</th>
+        <th>Original Title</th>
+        <th>Title with first 10 chars</th>
+    </tr>
+   
+    <tr *ngFor="let r of backendRespFilter; let e = even; let o = odd" [ngClass]="{ ob: e, ey: o }">
+        <tr *ngFor="let r of backendRespFilter" [ngClass]="oddEvenCSS ? 'ey': 'ob'">
+        <td>{{r.userId}}</td>
+        <td>{{r.id}}</td>
+        <td>{{r.title}}</td>
+        <td>{{r.title | slice:0:10}}</td>
+    </tr>
+</table> -->
+
+
+
+
+    <table appCustomDirective class="table table-info">
+    <tr>
+        
+        <th>id</th>
+        <th>title</th>
+        <th>description</th>
+        <th>Title with first 10 chars</th>
+    </tr>
+    <tr appCustomDirective *ngFor="let r of postData">
+    <!-- <tr *ngFor="let r of backendRespFilter; let e = even; let o = odd" [ngClass]="{ ob: e, ey: o }"> -->
+        <tr *ngFor="let r of backendRespFilter" [ngClass]="oddEvenCSS ? 'ey': 'ob'">
+        <td>{{r.id}}</td>
+        <td>{{r.title}}</td>
+        <td>{{r.description}}</td>
+        <td>{{r.title | slice:0:10}}</td>
+    </tr>
+</table>

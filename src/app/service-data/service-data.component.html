@@ -1,0 +1,55 @@
+<h3>Angular Services</h3>
+<!-- 
+Angular Services:
+	Services are the basic building block of the angular.
+	It is used to seperate UI logic from business logic. i.e used to seperate UI from backend.
+	It is also used for inter component communication.
+	Service is class file with methods and properties.
+	Service is used for backend communication as well as code reusability.
+	
+Dependency Injection:
+	It is an pattern of class coding in which class recieves its dependencies extranally rather than creating itself.
+	
+	
+	comp.ts ===> service ===> http client ===> backend ===> data base
+	data base ===> backend ===> http client (in temrs of observables) ===> service ====> component(Subscription) 
+
+
+HTTP Client:
+	HTTP Client is an built in service used to communicate with backend.
+	It is used to send the http request and get the response from backend.
+	We will get response in terms of observable.
+	We can handle error with the help of http client.
+	We can cancel the http request.
+	Http provides below methods:
+	
+	get: used to get the data from backend.
+	post: used to send or recieve the data from backend.
+	put: used to update the data.
+	delete: used to delete the data.
+	
+	post: All above method's operation can be handled with the help of post method.
+	
+	To call the API we should know:
+	1. Type of the method like get, post, put, delete, patch.
+	2. url for the API.
+	3. Request body.
+	-->
+
+
+<table appCustomDirective class="table table-info">
+    <tr>
+        <th>User Id</th>
+        <th>Title</th>
+        <!-- <th>Body</th> -->
+        <th>Year</th>
+
+        
+    </tr>
+    <tr appCustomDirective *ngFor="let x of postData">
+        <td>{{x.userId}}</td>
+        <td>{{x.title}}</td>
+        <!-- <td>{{x.body}}</td> -->
+        <td>{{x.year}}</td>
+    </tr>
+</table>

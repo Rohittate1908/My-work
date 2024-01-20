@@ -1,0 +1,31 @@
+
+.form-control{
+    text-align: left;
+}
+
+.lablename{
+    text-align: left;
+}
+form {
+    display: inline-block;
+    border: 2px solid black;
+    padding: 20px;
+    margin-left: 25%;
+    width: 50%;
+    background-color: skyblue;
+} 
+
+label{
+   
+    display: inline;
+    text-align: left;
+    width: 75px;
+    padding-right: 20px;
+}
+ 
+table{
+    text-align: center;
+}
+button{
+    color: black;
+}

@@ -1,0 +1,81 @@
+
+<h1>Reactive Form</h1>
+<!-- without validations -->
+ <!-- <form [formGroup]="myForm" (ngSubmit) = "onSubmitReactiveForm()">
+    <div class="form-Group">
+        <b><label for="firstName">Enter Your First Name :</label></b>
+        <input type="text" name="fname" placeholder="Enter Your First Name" formControlName ="fname" class="form-control">
+    </div>
+    
+    <div class="form-group">
+        <b><label for="lastName">Enter Your Last Name :</label></b>
+        <input type="text" name="lname" placeholder="Enter Your Last Name" formControlName="lname" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <b><label for="email">Enter Your Email Address :</label></b>
+        <input type="text" name="email" placeholder="Enter Your Email Address" formControlName="email" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <b><label for="pass">Create Password</label></b>
+        <input type="password" name="pass" placeholder = "Enter Your Password" formControlName="pass" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <b><label for="cpass">Create Password</label></b>
+        <input type="password" name="cpass" placeholder = "ReEnter Your Password" formControlName="cpass" class="form-control">
+    </div>
+
+    <b><button class="btn btn-info">Submit</button></b>
+
+</form> -->
+
+
+<!-- with validations -->
+
+<form [formGroup]="myForm" (ngSubmit)="onSubmitReactiveForm()" >
+    <div class="form-group">
+        <b><label>Enter Your First Name : <span style="color: red;">*</span></label></b>
+        <input type="text" name="fname" placeholder="Enter Your First Name" formControlName="fname" class="form-control"
+        required [ngClass]="{'is-invalid': isFormSubmitted && f.fname.errors}">
+        <div *ngIf="isFormSubmitted && f.fname.errors?.required" class="invalid-feedback">
+            First Name is Required
+        </div> 
+    </div><br>
+
+    <div class="form-group">
+        <b><label>Enter Your Last Name : <span style="color: red;">*</span></label></b>
+        <input type="text" name="lname" placeholder="Enter Your Last Name" formControlName="lname" class="form-control"
+        required [ngClass]="{'is-invalid': isFormSubmitted && f.lname.errors}">
+        <div *ngIf="isFormSubmitted && f.lname.errors?.required" class="invalid-feedback">
+            Last Name is Required 
+        </div>
+    </div><br>
+
+    <div class="form-group">
+        <b><label>Enter Your Email Addresss : <span style="color: red;">*</span></label></b>
+        <input type="email" name="email"placeholder="Enter Your Email Address" formControlName="email" class="form-control"
+        required [ngClass]="{'is-invalid': isFormSubmitted && f.email.errors}" >
+        <div *ngIf="isFormSubmitted && f.email.errors?.required" class="invalid-feedback">
+            Email is Required
+        </div>
+        <div *ngIf="isFormSubmitted && f.email.errors?.pattern" class="invalid-feedback">
+            Please Enter Valid Email
+        </div>
+    </div><br>
+
+    <div class="form-group">
+        <b><label>Create Password : <span style="color: red;">*</span></label></b>
+        <input type="password" name="pass" placeholder = "Enter Your Password" formControlName="pass" class="form-control">
+    </div><br>
+
+    <div class="form-group">
+        <b><label>Confirm Password : <span style="color: red;">*</span></label></b>
+        <input type="password" name="cpass" placeholder = "ReEnter Your Password" formControlName="cpass" class="form-control">
+    </div><br>
+
+
+    <!-- <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Submit</button> -->
+    <button class="btn btn-primary">Submit</button>
+</form>
